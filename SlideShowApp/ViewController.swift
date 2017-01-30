@@ -10,7 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
 
-
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var slideShowButton: UIButton!
     @IBOutlet weak var previousButton: UIButton!
@@ -19,21 +18,12 @@ class ViewController: UIViewController {
     // 時間を扱う変数を用意
     var currentImageIndex: Int = 0
     var images: [String] = ["dfp-0.png", "dfp-1.png", "dfp-2.png", "dfp-3.png", "dfp-4.png"]
-
     
     var timer: Timer!
     var timer_section: Float = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         refreshImageView()
-//        // タップイベントをインスタンス化
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapImageView(_ :)))
-//
-//        // 画像のタップを検知
-//        imageView.isUserInteractionEnabled = true
-//        
-//        // 画像にイベントを追加
-//        imageView.addGestureRecognizer(tapGesture)
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,13 +51,6 @@ class ViewController: UIViewController {
         refreshImageView()
     }
     
-    /**
-     * 拡大画像に遷移
-     */
-//    func tapImageView (_ sender: UITapGestureRecognizer) {
-//        print("Image Tapped")
-//        
-//    }
     
     /**
      * スライドショーを再生/停止する
@@ -129,15 +112,9 @@ class ViewController: UIViewController {
         refreshImageView()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "result" {
-            let scaleImageViewController:ScaleImageViewController = segue.destination as! ScaleImageViewController
-            scaleImageViewController.imageName = images[currentImageIndex]
-            scaleImageViewController.currentImageIndex = currentImageIndex
-        }
-    }
-    
-    
+    /**
+     * 拡大画像に遷移
+     */
     @IBAction func tapimageView(_ sender: AnyObject) {
         let storyboard: UIStoryboard = self.storyboard!
         let scaleImageViewController:ScaleImageViewController = storyboard.instantiateViewController(withIdentifier: "scaleImage") as! ScaleImageViewController
