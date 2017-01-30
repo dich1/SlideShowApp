@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var slideShowButton: UIButton!
     @IBOutlet weak var previousButton: UIButton!
@@ -25,7 +26,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         refreshImageView()
-        imageView.isUserInteractionEnabled = true
+//        // タップイベントをインスタンス化
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapImageView(_ :)))
+//
+//        // 画像のタップを検知
+//        imageView.isUserInteractionEnabled = true
+//        
+//        // 画像にイベントを追加
+//        imageView.addGestureRecognizer(tapGesture)
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,12 +42,15 @@ class ViewController: UIViewController {
     }
     
     /**
-     * 画像を追加する
+     * 画像を置き換える
      */
     func refreshImageView() {
         imageView.image = UIImage(named: images[currentImageIndex])
     }
     
+    /**
+     * 配列の要素数を置き換える
+     */
     func updateImage(timer: Timer) {
         if(self.currentImageIndex == 0){
             self.currentImageIndex = self.images.count - 1
@@ -49,6 +60,14 @@ class ViewController: UIViewController {
         
         refreshImageView()
     }
+    
+    /**
+     * 拡大画像に遷移
+     */
+//    func tapImageView (_ sender: UITapGestureRecognizer) {
+//        print("Image Tapped")
+//        
+//    }
     
     /**
      * スライドショーを再生/停止する
@@ -108,6 +127,31 @@ class ViewController: UIViewController {
         }
         
         refreshImageView()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "result" {
+            let scaleImageViewController:ScaleImageViewController = segue.destination as! ScaleImageViewController
+            scaleImageViewController.imageName = images[currentImageIndex]
+            scaleImageViewController.currentImageIndex = currentImageIndex
+        }
+    }
+    
+    
+    @IBAction func tapimageView(_ sender: AnyObject) {
+        let storyboard: UIStoryboard = self.storyboard!
+        let scaleImageViewController:ScaleImageViewController = storyboard.instantiateViewController(withIdentifier: "scaleImage") as! ScaleImageViewController
+        scaleImageViewController.imageName = images[currentImageIndex]
+        performSegue(withIdentifier: "result", sender: nil)
+    }
+    
+    /**
+     * 遷移先から戻る
+     */
+    @IBAction func unwind(segue: UIStoryboardSegue) {
+        if timer != nil {
+            
+        }
     }
 }
 
