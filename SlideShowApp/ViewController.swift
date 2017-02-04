@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     
     var timer: Timer!
     var timer_section: Float = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         refreshImageView()
@@ -42,10 +43,10 @@ class ViewController: UIViewController {
      * 配列の要素数を置き換える
      */
     func updateImage(timer: Timer) {
-        if(self.currentImageIndex == 0){
-            self.currentImageIndex = self.images.count - 1
-        }else{
-            self.currentImageIndex -= 1
+        if self.currentImageIndex == self.images.count - 1 {
+            self.currentImageIndex = 0
+        } else {
+            self.currentImageIndex += 1
         }
         
         refreshImageView()
@@ -116,12 +117,15 @@ class ViewController: UIViewController {
      * 拡大画像に遷移
      */
     @IBAction func tapimageView(_ sender: AnyObject) {
-        let storyboard: UIStoryboard = self.storyboard!
-        let scaleImageViewController:ScaleImageViewController = storyboard.instantiateViewController(withIdentifier: "scaleImage") as! ScaleImageViewController
-        scaleImageViewController.imageName = images[currentImageIndex]
-        performSegue(withIdentifier: "result", sender: nil)
+        performSegue(withIdentifier: "result", sender: images[currentImageIndex])
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "result" {
+            let secondViewController = segue.destination as! ScaleImageViewController
+            secondViewController.imageName = sender as! String!
+        }
+    }
     /**
      * 遷移先から戻る
      */

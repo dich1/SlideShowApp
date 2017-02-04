@@ -12,6 +12,8 @@ class ScaleImageViewController: UIViewController, UIScrollViewDelegate {
     
     
     @IBOutlet weak var scrollView: UIScrollView!
+    
+//    @IBOutlet weak var imageView: UIImageView!
     var imageView: UIImageView!
     var imageName: String!
     var currentImageIndex: Int!
@@ -21,6 +23,7 @@ class ScaleImageViewController: UIViewController, UIScrollViewDelegate {
         
         scrollView.delegate = self
         imageView = UIImageView(image: UIImage(named: imageName))
+        imageView.contentMode = UIViewContentMode.center
         scrollView.addSubview(imageView)
     }
 
@@ -45,10 +48,7 @@ class ScaleImageViewController: UIViewController, UIScrollViewDelegate {
         return imageView
     }
     
-    func scrollViewDidZoom(_ scrollView: UIScrollView) {
-        // ズームのタイミングでcontentInsetを更新
-        updateScrollInset()
-    }
+    
     
     private func updateScrollInset() {
         // imageViewの大きさからcontentInsetを再計算
