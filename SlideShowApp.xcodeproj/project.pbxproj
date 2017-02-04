@@ -68,6 +68,7 @@
 			children = (
 				42FE5FAF1E2D932100F81001 /* AppDelegate.swift */,
 				42FE5FB11E2D932100F81001 /* ViewController.swift */,
+				42FE5FE71E2EE73600F81001 /* ScaleImageViewController.swift */,
 				42FE5FB31E2D932100F81001 /* Main.storyboard */,
 				429FE7CC1E39BF7100F005E1 /* dfp-0@2x.png */,
 				429FE7CD1E39BF7100F005E1 /* dfp-1@2x.png */,
@@ -76,7 +77,6 @@
 				429FE7D01E39BF7100F005E1 /* dfp-4@2x.png */,
 				42FE5FB61E2D932100F81001 /* Assets.xcassets */,
 				42FE5FB81E2D932100F81001 /* LaunchScreen.storyboard */,
-				42FE5FE71E2EE73600F81001 /* ScaleImageViewController.swift */,
 				42FE5FBB1E2D932100F81001 /* Info.plist */,
 			);
 			path = SlideShowApp;

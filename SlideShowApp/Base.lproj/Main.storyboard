@@ -82,13 +82,13 @@
                                     <segue destination="Eij-Ko-L9U" kind="unwind" unwindAction="unwindWithSegue:" id="aIG-Zh-cFe"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="8" id="mr1-99-I2w">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="mr1-99-I2w">
                                 <frame key="frameInset" minY="58" width="375" height="609"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="ZLK-lT-d5c">
-                                        <rect key="frame" x="67" y="141" width="240" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="ZLK-lT-d5c">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="601"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
                                 </subviews>
                             </scrollView>
@@ -96,7 +96,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="ZLK-lT-d5c" id="yEk-E6-Zvq"/>
+                        <outlet property="imageView" destination="ZLK-lT-d5c" id="Oig-eo-f2O"/>
                         <outlet property="scrollView" destination="mr1-99-I2w" id="IIw-m4-OIn"/>
                     </connections>
                 </viewController>
