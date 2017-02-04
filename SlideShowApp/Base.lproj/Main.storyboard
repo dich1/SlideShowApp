@@ -54,7 +54,6 @@
                         <outlet property="nextButton" destination="1H1-rg-Dl1" id="vzb-Pk-niH"/>
                         <outlet property="previousButton" destination="WZp-ej-lzD" id="Fqj-MH-ZUr"/>
                         <outlet property="slideShowButton" destination="cAk-9E-4lR" id="52M-78-JAt"/>
-                        <segue destination="a4b-Xc-ZeT" kind="modal" identifier="result" id="IfB-TN-vJ4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -82,7 +81,7 @@
                                     <segue destination="Eij-Ko-L9U" kind="unwind" unwindAction="unwindWithSegue:" id="aIG-Zh-cFe"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="mr1-99-I2w">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="qH8-HX-4N1">
                                 <frame key="frameInset" minY="58" width="375" height="609"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </scrollView>
@@ -90,7 +89,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="scrollView" destination="mr1-99-I2w" id="IIw-m4-OIn"/>
+                        <outlet property="scrollView" destination="qH8-HX-4N1" id="0E9-i7-FGh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XSz-hI-lkt" userLabel="First Responder" sceneMemberID="firstResponder"/>
